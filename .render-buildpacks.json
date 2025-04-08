@@ -1,0 +1,6 @@
+{
+  "buildpacks": {
+    "python": "3.11"
+  },
+  "start": "gunicorn backend.wsgi:application"
+}
