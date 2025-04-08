@@ -22,7 +22,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 import os
-from django.http import FileResponse
+from django.http import FileResponse, JsonResponse
 from django.views.static import serve
 
 # API documentation setup
@@ -59,7 +59,21 @@ def serve_media_file(request, path):
     from django.http import Http404
     raise Http404("Media file not found")
 
+# Simple view to confirm API is working
+def api_root(request):
+    return JsonResponse({
+        'status': 'success',
+        'message': 'Visita Siargao API is running',
+        'endpoints': {
+            'explore': '/api/explore/',
+            'events': '/api/events/',
+            'auth': '/api/auth/',
+            'docs': '/swagger/'
+        }
+    })
+
 urlpatterns = [
+    path('', api_root, name='api_root'),
     path('admin/', admin.site.urls),
     
     # API endpoints
