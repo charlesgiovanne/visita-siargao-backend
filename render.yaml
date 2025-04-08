@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: visita-siargao-backend
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn backend.wsgi:application
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: EMAIL_HOST_USER
+        sync: false
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
+      - key: DEFAULT_FROM_EMAIL
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: PYTHONUNBUFFERED
+        value: 1
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings

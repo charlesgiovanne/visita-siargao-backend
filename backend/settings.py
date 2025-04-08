@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-@gj_mbu)d&bta*vkzmmmzps+2kmig-9vk56hy6x(%uq_wpswtn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app', '.now.sh', '*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app', '.now.sh', '.onrender.com', '*']
 
 
 # Application definition
@@ -164,9 +164,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ['*']
 CORS_ALLOW_HEADERS = ['*']
-
-# For production, allow all hosts
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app', '.now.sh', '*']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
